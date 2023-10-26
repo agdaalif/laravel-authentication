@@ -14,11 +14,22 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory(5)->create();
+        User::factory(20)->create();
         User::create([
             'name'=>'Agda Alif',
             'email'=>'superuser@gmail.com',
             'email_verified_at' =>now(),
+            'role'=>'admin',
+            'password' => Hash::make('123456'),
+        ]);
+
+        User::create([
+            'name' => 'Super Admin',
+            'email' => 'superadmin@gmail.com',
+            'email_verified_at'  => now(),
+            'role' => 'superadmin',
+            'phone' => '6285640899225',
+            'bio' => 'laravel dev',
             'password' => Hash::make('123456'),
         ]);
     }
